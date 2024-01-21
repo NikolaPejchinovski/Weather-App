@@ -1,13 +1,148 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;800&display=swap');
+
+
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html, body {
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #52ABDD;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+  min-width: 700px;
+  background-color: #5167D9;
+  border-radius: 40px;
+  padding: 30px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search {
+  width: 100%;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 15px;
+  background-color: #fff;
+  font-size: 22px;
+  font-family: inherit;
+}
+
+.search::placeholder {
+  font-size: 22px;
+  font-family: inherit;
+  color: #818181;
+  font-weight: 400;
+}
+
+.search:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #535353;
+}
+
+.weather-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  margin: 30px 0;
+}
+
+.city-info {
+  margin-left: 30px
+}
+
+.city-info h1 {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.city-info h4 {
+  font-weight: 200;
+}
+
+.temperature-info {
+  display: flex;
+  align-items: center;
+  gap: 30px; 
+}
+
+.temperature-info h1 {
+  font-size: 72px;
+  font-weight: 600;
+  position: relative;
+}
+
+.temperature-info h1::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 100%;
+  width: 7px;
+  height: 7px;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 50%;
+
+}
+
+.weather-icon {
+  width: 220px;
+}
+
+@media(max-width: 701px) {
+  body {
+    overflow: hidden;
+    display: block;
+  }
+
+  .container {
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    min-height: 100px;
+    min-width: 200px;
+    padding: 30px 10px;
+    border-radius: 0;
+    overflow: hidden;
+    }
+
+  .search {
+    padding: 15px 30px;
+  }
+
+  .weather-container {
+    width: 100%;
+  }
+
+  .temperature-info {
+    gap: 10px;
+  }
+
+  .temperature-info h1 {
+    font-size: 42px;
+  }
+
+  .city-info {
+    font-size: 14px;
+  }
+
+  .weather-icon {
+    width: 120px;
+  }
+
 }
