@@ -9,6 +9,7 @@ import cloudRain from "./icons/cloud-rain.svg";
 import cloudSprinkle from "./icons/cloud-sprinkle.svg";
 import cloudThunder from "./icons/cloudy-thunder.svg";
 import sunnyCloudSnow from "./icons/sunny-cloud-snow.svg";
+import mist from "./icons/mist.svg";
 import axios from "axios";
 
 function App() {
@@ -57,6 +58,8 @@ function App() {
       setIcon(sun);
     } else if (data.current.condition.text === 'Light drizzle') {
       setIcon(cloudSprinkle);
+    } else if (data.current.condition.text === 'Mist') {
+      setIcon(mist);
     } else {
       setIcon(data.current.condition.icon);
     }
