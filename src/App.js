@@ -55,6 +55,8 @@ function App() {
       setIcon(cloudSnow);
     } else if (data.current.condition.text === 'Clear') {
       setIcon(sun);
+    } else if (data.current.condition.text === 'Light drizzle') {
+      setIcon(cloudSprinkle);
     } else {
       setIcon(data.current.condition.icon);
     }
