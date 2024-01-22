@@ -18,6 +18,9 @@ function App() {
   const [celsius, setCelsius] = useState('');
   const [icon, setIcon] = useState('');
   const [condition, setCondition] = useState('');
+  const [feeling, setFeeling] = useState('');
+  const [wind, setWind] = useState('');
+  const [rain, setRain] = useState('');
 
 
  // Fetch Weather
@@ -30,10 +33,16 @@ function App() {
   const fetchWeather = async (searchTerm) => {
     try {
       let res = await axios.get(`https://api.weatherapi.com/v1/current.json?key=9534da0bb256466493f125748242101&q=${searchTerm}`);
-    let data = res.data;
+      let data = res.data;
 
+    // Set data
     setCelsius(data.current.temp_c);
     setCondition(data.current.condition.text);
+    setCity(`${data.location.name}, ${data.location.country}`);
+    setFeeling(`Feels like: ${data.current.feelslike_c}`);
+    setWind(`Wind: ${data.current.wind_kph} kmh | Direction: ${data.current.wind_dir}`);
+    setRain(`Precipitation: ${data.current.precip_mm} mm`);
+
     if(data.current.condition.text === 'Sunny') {
       setIcon(sun);
     } else if (data.current.condition.text === 'Partly cloudy') {
@@ -69,6 +78,8 @@ function App() {
     return data;
     } catch (error) {
       console.error('Error fetching weather', error);
+      setCity('Unknown'); 
+
     }
     
   };
@@ -79,14 +90,13 @@ function App() {
         if(e.key === 'Enter') {
           const newSearchTerm = e.target.value;
           setSearch(newSearchTerm);
-          setCity(newSearchTerm);  
         }
     }
 
   return (
     <div className="container">
       <Search handleChange={handleChange}/>
-      <Weather city={city} condition={condition} weathericon={icon} celsius={celsius} />
+      <Weather city={city} condition={condition} weathericon={icon} celsius={celsius} feeling={feeling} wind={wind} rain={rain} />
     </div>
   );
 }

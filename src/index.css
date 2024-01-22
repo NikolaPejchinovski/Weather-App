@@ -69,6 +69,11 @@ body {
 .city-info h1 {
   font-weight: 600;
   text-transform: capitalize;
+  max-width: 100px;
+}
+
+.city-info h3 {
+  font-weight: 200;
 }
 
 .city-info h4 {
@@ -139,6 +144,10 @@ body {
 
   .city-info {
     font-size: 14px;
+  }
+
+  .city-info h1 {
+    font-size: 22px;
   }
 
   .weather-icon {
